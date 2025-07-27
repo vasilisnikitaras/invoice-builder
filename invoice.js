@@ -126,3 +126,91 @@ document.getElementById("exportPDF").addEventListener("click", () => {
   };
   html2pdf().set(opt).from(element).save();
 });
+
+
+// ---------------- TXT EXPORT ----------------
+document.getElementById("exportTXT").addEventListener("click", () => {
+  const content = `
+Company: ${inputs.company.value}
+Client: ${inputs.client.value}
+Date: ${inputs.date.value}
+Items:
+${inputs.items.value}
+Tax: ${inputs.tax.value}%
+Total: ${preview.total.textContent}
+`;
+  const blob = new Blob([content], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "invoice.txt";
+  a.click();
+});
+
+// ---------------- CSV EXPORT ----------------
+document.getElementById("exportCSV").addEventListener("click", () => {
+  const csv = `"Company","Client","Date","Items","Tax","Total"\n"${inputs.company.value}","${inputs.client.value}","${inputs.date.value}","${inputs.items.value.replace(/\n/g, " | ")}","${inputs.tax.value}","${preview.total.textContent}"`;
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "invoice.csv";
+  a.click();
+});
+
+// ---------------- JSON EXPORT ----------------
+document.getElementById("exportJSON").addEventListener("click", () => {
+  const data = {
+    company: inputs.company.value,
+    client: inputs.client.value,
+    date: inputs.date.value,
+    items: inputs.items.value.split('\n'),
+    tax: inputs.tax.value,
+    total: preview.total.textContent
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "invoice.json";
+  a.click();
+});
+
+
+
+
+
+document.getElementById("exportPDF").addEventListener("click", () => {
+  const element = document.getElementById("invoicePreview");
+  const opt = {
+    margin: 0.5,
+    filename: "invoice.pdf",
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+  html2pdf().set(opt).from(element).save();
+});
+
+document.getElementById("exportPDF").addEventListener("click", () => {
+  const preview = document.getElementById("invoicePreview");
+  console.log("✅ Debug:", preview.innerHTML); // Να δεις αν έχει περιεχόμενο!
+
+  // Απλό delay να είμαστε σίγουροι πως όλα έχουν φορτώσει
+  setTimeout(() => {
+    html2pdf().from(preview).save();
+  }, 100);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
