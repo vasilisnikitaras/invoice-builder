@@ -1,0 +1,196 @@
+/* ---- Base Reset & Layout ---- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f4f4;
+  color: #222;
+  padding: 1rem;
+  transition: background 0.3s, color 0.3s;
+}
+header, footer {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+h1, h2 {
+  margin-bottom: 0.5rem;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+label {
+  font-weight: bold;
+}
+input, textarea, select, button {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+button {
+  background: #0066cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background: #004b99;
+}
+
+/* ---- Preview Panel ---- */
+#invoicePreview {
+  background: #fff;
+  border-left: 5px solid #0066cc;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+#invoicePreview p {
+  margin: 0.4rem 0;
+}
+#previewQR {
+  margin-top: 0.5rem;
+  max-width: 120px;
+}
+
+/* ---- Toolbar ---- */
+.toolbar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+#themeToggle, #langSelect {
+  padding: 0.4rem;
+}
+
+/* ---- Footer ---- */
+footer {
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  color: #666;
+}
+
+/* ---- Dark Theme ---- */
+body.dark {
+  background: #222;
+  color: #eee;
+}
+body.dark form,
+body.dark #invoicePreview {
+  background: #333;
+  color: #eee;
+  box-shadow: 0 0 10px rgba(255,255,255,0.08);
+}
+body.dark button { 
+  background: #0099cc;
+}
+body.dark button:hover {
+  background: #007299;
+}
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background: #444;
+  border: 1px solid #666;
+  color: #fff;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+  }
+  .form-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  button, input, textarea, select {
+    font-size: 1rem;
+  }
+}
+/* 🌐 Centering το κεντρικό wrapper */
+.main-wrapper {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* 🎯 Centering τα κουμπιά και τα actions */
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+/* 📄 Centering το invoice preview */
+.invoice-preview {
+  margin: 2rem auto;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+/* 🧾 Centering το QR και footer */
+.qr-section, footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+textarea {
+  resize: vertical;
+  min-height: 4em;
+  max-height: 10em;
+  padding: 0.8em;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.invoice-preview {
+  flex: 1;
+  padding: 1.5em;
+  margin-top: 2em;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  min-width: 300px;
+}
+.main-wrapper {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}

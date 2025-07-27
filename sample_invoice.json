@@ -1,0 +1,13 @@
+{
+  "company": "VasiCorp",
+  "client": "John Doe",
+  "items": [
+    { "description": "Logo Design", "price": 200 },
+    { "description": "Web Hosting", "price": 50 },
+    { "description": "Maintenance (Monthly)", "price": 75 }
+  ],
+  "date": "2025-07-27",
+  "tax": 20,
+  "payment": "IBAN GR16 0110 1250 0000 0001 2300 695",
+  "currency": "USD"
+}
